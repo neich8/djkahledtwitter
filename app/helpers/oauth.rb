@@ -2,8 +2,8 @@
 def oauth_consumer
   raise RuntimeError, "You must set CONSUMER_KEY and CONSUMER_SECRET in your server environment." unless ENV['CONSUMER_KEY'] && ENV['CONSUMER_SECRET']
   @consumer ||= OAuth::Consumer.new(
-    CONSUMER_KEY,
-    CONSUMER_SECRET,
+        ENV['CONSUMER_KEY'],
+    ENV['CONSUMER_SECRET'],
     :site => "https://api.twitter.com"
   )
 end
